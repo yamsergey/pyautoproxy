@@ -53,7 +53,7 @@ By default, proxy corresponding to the protocol of the original request, be it h
 
 If you want to change it, just add `proxy` parameter to the Auto-Config URL e.g.:
 ```
-http://10.0.2.2:8081/?host=10.0.2.2&port=8080&proxy=SOCKS5
+http://localhost:8081/?host=localhost&port=8080&proxy=SOCKS5
 
 // Will return
 
