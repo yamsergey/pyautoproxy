@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/yamsergey/pyautoproxy.svg?style=svg&circle-token=a3ff3d7f5da08b8af00e14b5f704d375855f5685)](https://circleci.com/gh/yamsergey/pyautoproxy) [![PyPI version](https://badge.fury.io/py/pyautoproxy.svg)](https://badge.fury.io/py/pyautoproxy)
+
 ## State 
 In active development. It's in experiment state now
 
