@@ -43,13 +43,13 @@ filter = RequestFilter();
 class AutoProxyServer(BaseHTTPRequestHandler):
     def _set_headers(self):
         self.send_response(200)
-        self.send_header('Content-type', 'application/x-ns-proxy-autoconfig')
+        # self.send_header('Content-type', 'application/x-ns-proxy-autoconfig')
         self.send_header('Cache-Control', 'no-cache')
         self.send_header('Cache-Control', 'no-store')
         self.end_headers()
 
-    def _autoproxy_string(self, host, port):
-        content = "function FindProxyForURL(url, host) {{ return \"PROXY {host}:{port}; DIRECT\"; }}".format(host=host, port=port)
+    def _autoproxy_string(self, host, port, proxy):
+        content = "function FindProxyForURL(url, host) {{ return \"{proxy} {host}:{port}; DIRECT\"; }}".format(host=host, port=port, proxy=proxy)
 
         return content.encode("utf8")
 
@@ -62,8 +62,14 @@ class AutoProxyServer(BaseHTTPRequestHandler):
 
                 requested_port = query_components['port']
                 requested_host = query_components['host']
+                requested_protocol = None
 
-                self.wfile.write(self._autoproxy_string(host=requested_host, port=requested_port))
+                try:
+                    requested_protocol = query_components['proxy']
+                except:
+                    requested_protocol = 'PROXY'
+
+                self.wfile.write(self._autoproxy_string(host=requested_host, port=requested_port, proxy=requested_protocol))
             else:
                 self.send_response(502)
                 self.wfile.write('Request doesn\'t satisfy any configured filters'.encode('utf8'))                    
