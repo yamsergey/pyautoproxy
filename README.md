@@ -45,3 +45,20 @@ pyautoproxy -s
 It will filter all requests except requests from iOS, hence all you machine traffic won't go through the proxy.  
 #### Configure for Android Emulator
 From emulator you can always refer to host machine with ip `10.0.2.2`. Usual link for `Auto-Proxy` config on Android will looks like `http://10.0.2.2:8081/?host=10.0.2.2&port=8080` 
+
+
+### Configure proxy type
+
+By default, proxy corresponding to the protocol of the original request, be it http, https, or ftp, is used.
+
+If you want to change it, just add `proxy` parameter to the Auto-Config URL e.g.:
+```
+http://10.0.2.2:8081/?host=10.0.2.2&port=8080&proxy=SOCKS5
+
+// Will return
+
+function FindProxyForURL(url, host)
+{
+    return "SOCKS5 localhost:8080; DIRECT";
+}
+```
