@@ -3,7 +3,7 @@ In active development. It's in experiment state now
 
 # Python AutoProxy
 
-`pyauthoproxy` helps to configure your proxy for developemnt purpose.
+`pyautoproxy` helps to configure your proxy for developemnt purpose.
 When you work with some proxy and have to validate traffic quite often it really annoying to reconfigure a device to use proxy when needed and when not to.
 
 To make life a bit easier we can use Proxy [Auto-Config](https://en.wikipedia.org/wiki/Proxy_auto-config). But problem with it is that most of http clients expect it to be on some server and response from that server should have proper headers, hence we can't use just a file on local machine.  Also Different devices require different proxy config time by time.

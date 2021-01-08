@@ -5,7 +5,7 @@ import setuptools
 from setuptools.command.install import install
 
 
-def version() -> str: return "0.0.11"
+def version() -> str: return "0.0.12"
 
 
 class VerifyVersionCommand(install):
@@ -46,7 +46,7 @@ setuptools.setup(
     },
     entry_points={
         'console_scripts': [
-            "pyautoproxy = pyautoproxy:__main__"
+            "pyautoproxy = pyautoproxy.main:pyautoproxy"
         ]
     }
 )

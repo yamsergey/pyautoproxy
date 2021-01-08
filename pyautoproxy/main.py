@@ -83,9 +83,7 @@ def run(server_class=HTTPServer, addr="localhost", port=8000):
 
     httpd.serve_forever()
 
-
-if __name__ == "__main__":
-
+def pyautoproxy():    
     parser = argparse.ArgumentParser(description='Configurable autoproxy')
     parser.add_argument(
         '-l',
@@ -120,3 +118,6 @@ if __name__ == "__main__":
         ])
 
     run(addr=args.listen, port=args.port)
+
+if __name__ == "__main__":
+    pyautoproxy()
