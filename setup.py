@@ -33,7 +33,7 @@ setuptools.setup(
     description="Light weight auto proxy server",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://gitlab.com/yamsergey/pyautoproxy",
+    url="https://github.com/yamsergey/pyautoproxy",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
