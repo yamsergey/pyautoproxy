@@ -2,16 +2,17 @@ import argparse
 import re
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse
+from typing import List
 
 class RequestFilter:
 
     def validate(self, handler: BaseHTTPRequestHandler) -> bool:
-        return True;
+        return True
 
 class DenyAllFilter(RequestFilter):
 
     def validate(self, handler: BaseHTTPRequestHandler) -> bool:
-        return False;        
+        return False       
 
 class IosSimulatorFilter(RequestFilter):
 
@@ -26,9 +27,7 @@ class IosSimulatorFilter(RequestFilter):
 
 class CompositeRequestFilter(RequestFilter):
 
-    filters = list[RequestFilter]
-
-    def __init__(self, filters: list[RequestFilter]) -> None:
+    def __init__(self, filters: List[RequestFilter]) -> None:
         super().__init__()
         self.filters = filters;
 

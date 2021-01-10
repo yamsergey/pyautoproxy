@@ -5,7 +5,7 @@ import setuptools
 from setuptools.command.install import install
 
 
-def version() -> str: return "0.0.13"
+def version() -> str: return "0.0.14"
 
 
 class VerifyVersionCommand(install):
