@@ -42,7 +42,7 @@ filter = RequestFilter();
 class AutoProxyServer(BaseHTTPRequestHandler):
     def _set_headers(self):
         self.send_response(200)
-        # self.send_header('Content-type', 'application/x-ns-proxy-autoconfig')
+        self.send_header('Content-type', 'application/x-ns-proxy-autoconfig')
         self.send_header('Cache-Control', 'no-cache')
         self.send_header('Cache-Control', 'no-store')
         self.end_headers()
