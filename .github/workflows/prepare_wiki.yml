@@ -14,7 +14,9 @@ jobs:
           repository: 'yamsergey/pyautoproxy.wiki.git'
           ref: 'master'
           path: 'pyautoproxy.wiki'
-      - run: cd $GITHUB_WORKSPACE/pyautoproxy.wiki    
+      - run: cd $GITHUB_WORKSPACE/pyautoproxy.wiki
+      - run: pwd
+      - run: ls -la
       - run: git config --global user.name 'Wiki'
       - run: git config --global user.email 'yamsergey@gmail.com'
       - run: git branch -a
