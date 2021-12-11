@@ -17,6 +17,7 @@ jobs:
       - name: Replace asciidoc with adoc
         run: | 
           cd $GITHUB_WORKSPACE/pyautoproxy.wiki
+          git fetch 
           pwd
           ls -la
           git config --global user.name 'Wiki'
