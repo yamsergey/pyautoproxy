@@ -10,18 +10,17 @@ jobs:
     steps:
       - name: Check out wiki repository
         uses: actions/checkout@v2
-          with:
-            repository: 'yamsergey/pyautoproxy.wiki.git'
-            ref: 'master'
-            path: 'pyautoproxy.wiki.git'
-      - run: |
-        cd $GITHUB_WORKSPACE/ocs_android.wiki
-        git config --global user.name 'Wiki'
-        git config --global user.email 'yamsergey@gmail.com'
-        git checkout wiki
-        git merge master
-        find ./docs -depth -name "*.asciidoc" -exec sh -c 'mv "$1" "${1%.asciidoc}.adoc"' _ {} \;
-        find ./docs -type f -exec sed -i '' 's/.asciidoc/.adoc/g' {} +
-        git add -all
-        git commit -m "Replace .asciidoc with .adoc in files and content"
-        git push
+        with:
+          repository: 'yamsergey/pyautoproxy.wiki.git'
+          ref: 'master'
+          path: 'pyautoproxy.wiki.git'
+      - run: cd $GITHUB_WORKSPACE/pyautoproxy.wiki    
+      - run: git config --global user.name 'Wiki'
+      - run: git config --global user.email 'yamsergey@gmail.com'
+      - run: git checkout wiki
+      - run: git merge master
+      - run: find ./docs -depth -name "*.asciidoc" -exec sh -c 'mv "$1" "${1%.asciidoc}.adoc"' _ {} \;
+      - run: find ./docs -type f -exec sed -i '' 's/.asciidoc/.adoc/g' {} +
+      - run: git add -all
+      - run: git commit -m "Replace .asciidoc with .adoc in files and content"
+      - run: git push
