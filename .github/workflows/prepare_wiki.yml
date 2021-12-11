@@ -1,0 +1,27 @@
+name: Prepare Wiki pages for Oviva Wiki
+
+on:
+  gollum:
+  workflow_dispatch:
+
+jobs:
+  prepare_wiki_for_oviva_wiki:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out wiki repository
+        uses: actions/checkout@v2
+          with:
+            repository: 'yamsergey/pyautoproxy.wiki.git'
+            ref: 'master'
+            path: 'pyautoproxy.wiki.git'
+      - run: |
+        cd $GITHUB_WORKSPACE/ocs_android.wiki
+        git config --global user.name 'Wiki'
+        git config --global user.email 'yamsergey@gmail.com'
+        git checkout wiki
+        git merge master
+        find ./docs -depth -name "*.asciidoc" -exec sh -c 'mv "$1" "${1%.asciidoc}.adoc"' _ {} \;
+        find ./docs -type f -exec sed -i '' 's/.asciidoc/.adoc/g' {} +
+	git add -all
+	git commit -m "Replace .asciidoc with .adoc in files and content"
+        git push
