@@ -17,6 +17,8 @@ jobs:
       - name: Replace asciidoc with adoc
         run: | 
           cd $GITHUB_WORKSPACE/pyautoproxy.wiki
+          pwd
+          ls -la
           git config --global user.name 'Wiki'
           git config --global user.email 'yamsergey@gmail.com'
           git branch -a
