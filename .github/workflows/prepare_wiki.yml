@@ -17,6 +17,7 @@ jobs:
       - run: cd $GITHUB_WORKSPACE/pyautoproxy.wiki    
       - run: git config --global user.name 'Wiki'
       - run: git config --global user.email 'yamsergey@gmail.com'
+      - run: git branch -a
       - run: git checkout wiki
       - run: git merge master
       - run: find ./docs -depth -name "*.asciidoc" -exec sh -c 'mv "$1" "${1%.asciidoc}.adoc"' _ {} \;
