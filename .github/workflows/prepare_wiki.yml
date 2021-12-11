@@ -24,6 +24,7 @@ jobs:
           git config --global user.email 'yamsergey@gmail.com'
           git branch -a
           git merge origin/master
+          ls 
           find ./docs -depth -name "*.asciidoc" -exec sh -c 'mv "$1" "${1%.asciidoc}.adoc"' _ {} \;
           find ./docs -type f -exec sed -i '' 's/.asciidoc/.adoc/g' {} +
           git add -all
